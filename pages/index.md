@@ -1,7 +1,7 @@
 ---
 type: posts
 title: Portal Network Blog
-date: 2021-03-18
+date: 2023-11-30
 ---
 
 ![](../public/images/EthPortalNetworkLogo.png)

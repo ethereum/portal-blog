@@ -1,10 +1,10 @@
-const YEAR = new Date().getFullYear()
-
 export default {
   footer: (
     <small style={{ display: 'block', marginTop: '8rem' }}>
-      <time>{YEAR}</time> © Your Name.
-      <a href="/feed.xml">RSS</a>
+      <img src="/images/PortalIcon.png" width='50' align='left' />
+      <a href="https://www.ethportal.net">Portal Website</a>
+      <br />
+      <a href="https://github.com/ethereum/portal-network-specs">Portal Specs</a>
       <style jsx>{`
         a {
           float: right;
