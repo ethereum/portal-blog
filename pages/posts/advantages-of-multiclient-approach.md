@@ -24,7 +24,7 @@ An overlooked part of the merge is Ethereum’s unique approach to a multi-clien
 E
 thereum has execution clients and consensus clients that can be mixed and matched to over 20 different combinations, which supports chain security and functionality. Every client is built by a different team; if one team acts out of the community's wishes, it can lose to a more compliant one.
 
-![](public/client-diversity.png)
+![](../../public/images/client-diversity.png)
 
 ## Enhanced Resilience and Robustness:
 
