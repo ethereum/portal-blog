@@ -18,13 +18,13 @@ to compromise.
 
 But I digress...  So what actually happened in 2023...
 
-* History network "works"
-* Beacon network "works"
-* Active monitoring of the network via Glados
-* We have a [website](https://www.ethportal.net/)
-* More people and teams join the project.
-* Cross client testing via portal-hive
-* Lots of subtle ways that the project has matured...
+- History network "works"
+- Beacon network "works"
+- Active monitoring of the network via Glados
+- We have a [website](https://www.ethportal.net/)
+- More people and teams join the project.
+- Cross client testing via portal-hive
+- Lots of subtle ways that the project has matured...
 
 ## History and Beacon networks "work"
 
