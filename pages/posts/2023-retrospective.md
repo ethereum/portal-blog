@@ -32,24 +32,22 @@ This has got to be the most accessible accomplishement that we have to share.
 While the term "works" needs a few asterisks in order to survive close
 inspection, we have two of our three core networks running and live.
 
-The history network is actively running and storing chain history, retaining
+The History Network is actively running and storing chain history, retaining
 old history data and ingesting new history data as it is added to the chain.
 Most of the clients now have functioning support for JSON-RPC endpoints like
-`eth_getBlockByHash`. Additionally, the portal beacon network is also live,
-with clients able to follow the beacon chain using data sourced from the portal
-network DHT and the beacon light protocol data.  Both of these have provided us
+`eth_getBlockByHash`. Additionally, the Portal Beacon network is also live,
+with clients able to follow the Beacon chain using data sourced from the Portal
+network DHT and the Beacon light protocol data.  Both of these have provided us
 with live networks with real data to battle test the design of our protocol
 which has been largely theoretical until now.
 
 ## Monitoring via Glados
 
-> TODO: How to get this image to work...
-
 ![Glados Homepage](../../public/images/glados-homepage-for-2023-recap.png)
 
 One of the other major additions to the project is
 [Glados](https://glados.ethdevops.io/).  This project acts as a way to gain
-insights into whether the portal networks are actually functioning.  At it's
+insights into whether the Portal networks are actually functioning.  At it's
 core, Glados is an active monitoring tool which continually checks whether data
 that *should* be available via actually is.  This tool has been instrumental in
 the last year in measuring how well the networks and clients are performing,
@@ -58,7 +56,7 @@ diagnosing problems, and giving us in-depth visibility.
 
 ## A more respectable website (and a blog!)
 
-[https://www.ethportal.net/](https://www.ethportal.net/)
+[https://www.ethPortal.net/](https://www.ethPortal.net/)
 
 With the help of some new additions to the project, we have a website. This
 project has largely operated in an internal facing manner for the last few
@@ -99,8 +97,8 @@ where we have multiple implementations of our protocol running in a live
 environment storing and serving the data we aim to provide. We are encouraged
 by the attention we are starting to receive from the ecosystem which tells us
 we are building something that people want to use.  And we are poised to
-deliver the last piece of portal functionality, the state network, which will
-complete the core of the data the portal network aims to serve.
+deliver the last piece of Portal functionality, the State Network, which will
+complete the core of the data the Portal Network aims to serve.
 
 It is incredible to look at how much has gone into getting us to this point,
 and to look ahead and realize this is only the beginning.  With things like
