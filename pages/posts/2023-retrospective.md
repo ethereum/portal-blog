@@ -43,8 +43,6 @@ which has been largely theoretical until now.
 
 ## Monitoring via Glados
 
-> TODO: How to get this image to work...
-
 ![Glados Homepage](../../public/images/glados-homepage-for-2023-recap.png)
 
 One of the other major additions to the project is
