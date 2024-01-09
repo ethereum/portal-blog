@@ -45,7 +45,7 @@ which has been largely theoretical until now.
 
 > TODO: How to get this image to work...
 
-![Glados Homepage](/public/images/glados-homepage-for-2023-recap.png)
+![Glados Homepage](../../public/images/glados-homepage-for-2023-recap.png)
 
 One of the other major additions to the project is
 [Glados](https://glados.ethdevops.io/).  This project acts as a way to gain
