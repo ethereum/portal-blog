@@ -161,11 +161,15 @@ To achieve our mission, we’re focused on 5 major workstreams that comprise our
 
 ### 1) Trin
 
-- The Trin team comprises N developers.
-- Trin developers also work on tooling such as Glados and maintaining the testing infrastructure.
-- The Trin team is especially focused on....
+- The Trin team comprises 5 developers.
+- Trin developers also maintain tooling such as Glados, Portal-Hive, and Portal-Bridge.
+- The Trin team is especially focused on delivering a stable 4444s History network with validation for post-merge data via the Beacon network.
 - Specific challenges they might encounter in delivering the 2024 roadmap include...
-
+  - Stabilizing `utp` transport tooling / debugging async network issues
+  - Stabilizing the History/Beacon networks, while supporting the alpha State network
+  - Scaling pains of monitoring tools
+  - Network failures due to unmitigated attack vectors
+ 
 ### 2) Fluffy
 
 - The Fluffy team comprises N developers.
