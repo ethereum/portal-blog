@@ -14,9 +14,9 @@ This document aims to outline the 2024 core team & product roadmap for Portal Ne
 
 ## Team description
 
-The Portal Network core team is a small (<15 person) collaborative effort focused on bulding a decentralized peer-to-peer network for serving various types of critical Ethereum data. The Portal project is composed of three independent client teams each implementing the Portal Network specification in different languages: Trin (Rust), Ultralight (Typescript) and Fluffy (Nim), plus cross-client efforts to build out tooling and testing infrastructure. 
+The Portal Network core team is a small (<15 person) collaborative effort focused on bulding a decentralized peer-to-peer network for storing and serving data from the execution and consensus layers of the Ethereum protocol. The Portal project is composed of three independent client teams each implementing the Portal Network specification in different languages: Trin (Rust), Ultralight (Typescript) and Fluffy (Nim), plus cross-client efforts to build out tooling and testing infrastructure. 
 
-Our sustained focus is on shipping the minimum network functionality necessary to serve all of the Execution layer data.  This includes the three independent Portal clients which implementation the three sub-protocols that house and serve this data, tooling such as our network health monitor (GladOS), interoperability testing via Hive, and the "bridge" node functionality which is responsible for pushing data into the Portal Network.
+Our sustained focus is on shipping the minimum network functionality necessary to serve all of the Execution layer data.  This includes the three client implementations which each support the three sub-protocols that house and serve this data, tooling such as our network health monitor ((GladOS)[https://github.com/ethereum/glados]), interoperability testing via Hive, and the "bridge" node functionality which is responsible for pushing data into the Portal Network.
 
 Additionally, we allocate a significant portion of our time to support the practical adoption of this technology by client and app teams around the world.
 
@@ -40,7 +40,7 @@ Specifically:
 - The State sub-protocol gives light clients access to Ethereum stata data, exposing methods such as `eth_getProof` that eliminate the need for trusted third party RPC providers. 
 - The Beacon sub-protocol gives light clients access to the latest block headers so that they can be confident they are following the canonical Ethereum chain.
 
-Shipping these features will enable ***major upgrades for the Ethereum ecosystem as a whole***. These featues have been in development for several years and have been through several rounds of refinement and course correction. Now Portal Network is on the brink of shipping these sub-networks into production. 
+Shipping these features will enable ***major upgrades for the Ethereum ecosystem as a whole***. These features have been in development for several years and have been through several rounds of refinement and course correction. Now Portal Network is on the brink of shipping these sub-networks into production. 
 
 This is why ***2024 is a set to be a standout year for Portal Network.***
 
@@ -94,7 +94,7 @@ Longer term, there are proposals for more sub-protocols that serve granular tran
     - Key result 2: 
         - New features and milestones are reported via the Portal blog within 1 month of final PR meging merged.
     - Key result 3:
-        - At least 5 presentations focused on portal Network are delivered at major Ethereum events in 2024, including Devcon.
+        - At least 5 presentations focused on Portal Network are delivered at major Ethereum events in 2024, including Devcon.
 
 
 ### 2025 and beyond
@@ -105,24 +105,24 @@ These are longer term objectives that might be researched and discussed during 2
     - \> 10 apps/light clients have replaced third party centralized RPC providers with Portal Network.
 
 - **Objective 2: Portal Network is widely considered critical Ethereum infrastructure** 
-    - Key result 1: Portal mode is available is most Ethereum execution clients, either enablign them to aggressively prune their local data or to accelerate their sync times.
+    - Key result 1: Portal mode is available is most Ethereum execution clients, either enabling them to aggressively prune their local data or to accelerate their sync times.
 
 - **Objective 3: Portal Network is supporting major new developments for Ethereum**
 
-    - Key result 1: Portal Network serves data enabling e.g. stateless clients, SNARKified EVM, or other substantial Ethereum upgrades from the protocol roadmap. 
+    - Key result 1: Portal Network serves data enabling e.g. stateless clients, SNARKified EVM, Verkle trees, or other substantial Ethereum upgrades from the protocol roadmap. 
 
 - **Objective 4: Portal developers ship major new features that change how normal users interact with Ethereum**
 
     - Key result 1: Portal team have beta implementations of canonical transaction index network
     
-    - Key result 2: Portal team have agreed and begun to implement a design for a two-way bridge to Ethereum to enable transaction forwarding from Poral --> Ethereum
+    - Key result 2: Portal team have agreed and begun to implement a design for a two-way bridge to Ethereum to enable transaction forwarding from Portal --> Ethereum
 
 
 ## Where are we now?
 
-The Portal Network has existed for 5 years, during which time there have been substantial course corrections and redesigns in response tothe evolving wider Ethereum landscape. Today, Portal Network is not widely used, but it is on the precipice of launching highly impactful infrastructure that will benefit large parts of the Ethereum ecosystem. 2024 is expected to be a pivotal year, where we focus on moving what were previously R&D projects into production and focusing on growing adoption for our core features: the History network, State network and Beacon network.
+The Portal Network has existed for 5 years, during which time there have been substantial course corrections and redesigns in response to the evolving wider Ethereum landscape. Today, Portal Network actively deploying infrastructure that will benefit large parts of the Ethereum ecosystem. 2024 is expected to be a pivotal year, where we focus on moving what were previously R&D projects into production and focusing on growing adoption for our core features: the History network, State network and Beacon network.
 
-In the first instance, users will be expected to run Portal clients to expose a subset of Ethereum RPC methods. The list of methods will grow steadily over the first half of 2024 until almost all of the `eth` namespace methods can be served from Portal data. however, we also intend to collaborate with Ethereum client teams to help them to implement the Portal specification directly in existing execution clients, circumventing the need to run additional clients. 
+In the first instance, users will be expected to run Portal clients to expose a subset of Ethereum RPC methods. The list of methods will grow steadily over the first half of 2024 until almost all of the `eth` namespace methods can be served from Portal data. However, we also intend to collaborate with Ethereum client teams to help them to implement the Portal specification directly in existing execution clients, circumventing the need to run additional clients. 
 
 ## How did we get here?
 
