@@ -57,7 +57,7 @@ Longer term, there are proposals for more sub-protocols that serve granular tran
     - Key result 2:
         - \>=1 execution client is using Portal History network to support EIP-4444
     - Key result 3:
-        - History network never drops below 99% score on GladOS
+        - History network never drops below 99% score on Glados
     - Key result 4:
         - EIP-4444 is shipped for execution clients, with Portal Network named as the default long term data availability solution.
 
@@ -92,7 +92,7 @@ Longer term, there are proposals for more sub-protocols that serve granular tran
     - Key result 1: 
         - Github issues and comments across the Portal specs, Glados, and client repositories are always responded to (even if just an acknowledgement of receipt) in less than 3 days.
     - Key result 2: 
-        - New features and milestones are reported via the Portal blog within 1 month of final PR meging merged.
+        - New features and milestones are reported via the Portal blog within 1 month of final PR being merged.
     - Key result 3:
         - At least 5 presentations focused on Portal Network are delivered at major Ethereum events in 2024, including Devcon.
 
@@ -172,10 +172,15 @@ To achieve our mission, we’re focused on 5 major workstreams that comprise our
  
 ### 2) Fluffy
 
-- The Fluffy team comprises N developers.
-- Fluffy developers also work on tooling such as Glados and maintaining the testing infrastructure.
-- The Fluffy team is especially focused on....
+- The Fluffy team comprises 2 developers.
+- Fluffy developers also assist on tooling such as Glados and Portal-Hive.
+- The Fluffy team is especially focused on delivering a stable Portal history network and further work on the specifications and implementation of the Portal beacon network which allows for validation of post-merge data.
+- The Fluffy team is also focused on developing a PoC that integrates the Portal network with an EL client (Nimbus).
 - Specific challenges they might encounter in delivering the 2024 roadmap include...
+  - Stabilizing the History/Beacon networks, while supporting R&D on the Portal state network.
+  - Balancing time and efforts to further develop the Fluffy version of a Portal-bridge and actively run it on the network.
+  - Client/network robustness, resilience and performance as the networks scale up in terms of amounts of nodes and data + the capability to properly monitor this. 
+  
 
 ### 3) Ultralight
 
