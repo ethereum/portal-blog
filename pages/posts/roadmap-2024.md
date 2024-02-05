@@ -51,7 +51,7 @@ Longer term, there are proposals for more sub-protocols that serve granular tran
 
 ### 2024 
 
-- **Objective 1: Ship a viable solution for historical data storage**
+- **Objective 1: Ship a viable solution for decentralized access to historical data**
     - Key result 1:
         -  Portal History subprotocol is fully featured according to the canonical specification and there is feature parity across all three Portal clients. 
     - Key result 2:
@@ -120,7 +120,7 @@ These are longer term objectives that might be researched and discussed during 2
 
 ## Where are we now?
 
-The Portal Network has existed for 5 years, during which time there have been substantial course corrections and redesigns in response to the evolving wider Ethereum landscape. Today, Portal Network actively deploying infrastructure that will benefit large parts of the Ethereum ecosystem. 2024 is expected to be a pivotal year, where we focus on moving what were previously R&D projects into production and focusing on growing adoption for our core features: the History network, State network and Beacon network.
+The Portal Network has existed for 5 years, during which time there have been substantial course corrections and redesigns in response to the evolving wider Ethereum landscape. Today, Portal Network is actively deploying infrastructure that will benefit large parts of the Ethereum ecosystem. 2024 is expected to be a pivotal year, where we focus on moving what were previously R&D projects into production and focusing on growing adoption for our core features: the History network, State network and Beacon network.
 
 In the first instance, users will be expected to run Portal clients to expose a subset of Ethereum RPC methods. The list of methods will grow steadily over the first half of 2024 until almost all of the `eth` namespace methods can be served from Portal data. However, we also intend to collaborate with Ethereum client teams to help them to implement the Portal specification directly in existing execution clients, circumventing the need to run additional clients. 
 
@@ -184,15 +184,17 @@ To achieve our mission, we’re focused on 5 major workstreams that comprise our
 
 ### 3) Ultralight
 
-- The Ultralight team comprises N developers.
-- Ultralight developers also work on tooling such as Glados and maintaining the testing infrastructure.
-- The Ultralight team is especially focused on....
+- The Ultralight team comprises 2 developers.
+- Ultralight developers also work on tooling such as Portal-Hive and maintaining the testing infrastructure.
+- The Ultralight team is especially focused on expanding the current proof-of-concept State Network implementation into a fully-featured spec complete version
 - Specific challenges they might encounter in delivering the 2024 roadmap include...
+  - Manpower - the current team members are both part of the EthereumJS team and work part time on other team responsibilities
+  - Brower network incompatibilities - the current proof of concept implementation of the browser client is dependent on proxy services to connect to the rest of the network (due to discv5 being UDP exclusive) so finding a browser-friendly transport layer would be ideal to make browser light clients a reality
 ...
 ### 4) Glados
 
 - Glados is worked on by developers from the three main client teams, with some individuals taking more prominent roles than others. 
-- Scaling is going to be a challenge for Glados in 2024. The tool may have to migrate to an EF managed server so we can benefit from devops support and handle large volumes of traffic.
+- Scaling Glados from one to three Portal networks while simultaneously scaling up the expected traffic volume will be a challenge in 2024. The primary bottleneck in this scaling will be the Postgres DB that holds all of Glados's data. The primary path to accomplishing this scaling will be to continue improving Glados's DB queries and indexing. 
 - Glados is also going to be extremely important in 2024 because it is the early warning system for problems with any of the Portal sub-protocols. It might be worth refining a dedicated process and schedule around Glados maintenance to ensure the team can be very responsive to any issues. 
 
 ### 5) Communications
