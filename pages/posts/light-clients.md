@@ -10,7 +10,7 @@ author: jmc
 ## Key Takeaways
 
 - Light clients give access to Ethereum data to small devices, making it possible for apps, wallets, mobiles, bridges and IoT devices to interact with Ethereum. The associated trust assumptions depend upon the specific light client, ranging from completely trusting some RPC provider through to verifying both consensus and execution using SNARKs.
-- Light consensus clients are currently easier to build than light execution clients because a dedicated light client protocol for consensus clients was launched at The Merge.
+- Light consensus clients are currently easier to build than light execution clients because the consensus layer was developed with the knowledge acquired during the attempts at light protocol access for the execution layer.
 - The Portal Network enables users to get Beacon headers and `eth_getProof` responses from a peer-to-peer network, solving the problem of centralized third party RPC providers.
 - The Portal Network also provides a decentralized storage network for historical data, enabling EIP 4444 (history expiry). This allows for lighter full nodes.
 - Full nodes can be made lighter by expiring state data, but this requires multiple difficult protocol upgrades. (non inclusive list is Verkle tries, and address space expansion)
