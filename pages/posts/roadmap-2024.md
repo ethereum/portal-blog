@@ -185,12 +185,14 @@ To achieve our mission, we’re focused on 5 major workstreams that comprise our
 ### 3) Ultralight
 
 - The Ultralight team comprises 2 developers.
-- Ultralight developers also work on tooling such as Portal-Hive and maintaining the testing infrastructure.
-- The Ultralight team is especially focused on expanding the current proof-of-concept State Network implementation into a fully-featured spec complete version
+- Ultralight contributes a Typescript client to the Portal Network ecosystem, and explores ways to operate Portal Network clients in browsers and mobile devices. 
+- Ultralight developers contribute to the testing infrastructure with custom tooling for Portal-Hive, client interop test suites, and client-agnostic browser tools.
+- Team members also publish javascript based visualizations of client activity and protocol components as developer tools and eductional resources.
+- The Ultralight team has focused on State Network R&D, and will develop the current prototype into a fully-featured spec complete implementation with interop testing suite.
 - Specific challenges they might encounter in delivering the 2024 roadmap include...
-  - Manpower - the current team members are both part of the EthereumJS team and work part time on other team responsibilities
-  - Brower network incompatibilities - the current proof of concept implementation of the browser client is dependent on proxy services to connect to the rest of the network (due to discv5 being UDP exclusive) so finding a browser-friendly transport layer would be ideal to make browser light clients a reality
-...
+  - Manpower - the current developers both work full time on the EthereumJS client, and contribute to Ultralight with the time and resources granted by their primary team.
+  - Brower network incompatibilities - Browsers and Mobile devices present unique challenges from both technical and security issues.  The solutions involve modifying the NodeJS Ultralight client for browser compatibility, developing strategies against attack vectors unique to browsers, and implementing unique NAT traversal protocols. 
+
 ### 4) Glados
 
 - Glados is worked on by developers from the three main client teams, with some individuals taking more prominent roles than others. 
