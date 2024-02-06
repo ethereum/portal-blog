@@ -4,7 +4,7 @@ title: Portal Network 2024 roadmap
 date: 2024/2/1
 description: What does 2024 have in store for Portal Network?
 tag: project
-author: @jmcook1186
+author: jmc
 ---
 
 # Portal Network Roadmap Draft 2024
