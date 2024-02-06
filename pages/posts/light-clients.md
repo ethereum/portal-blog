@@ -11,17 +11,17 @@ author: jmc
 
 - Light clients give access to Ethereum data to small devices, making it possible for apps, wallets, mobiles, bridges and IoT devices to interact with Ethereum. The associated trust assumptions depend upon the specific light client, ranging from completely trusting some RPC provider through to verifying both consensus and execution using SNARKs.
 - Light consensus clients are currently easier to build than light execution clients because the consensus layer was developed with the knowledge acquired during the attempts at light protocol access for the execution layer.
-- The Portal Network enables users to get Beacon headers and `eth_getProof` responses from a peer-to-peer network, solving the problem of centralized third party RPC providers.
-- The Portal Network also provides a decentralized storage network for historical data, enabling EIP 4444 (history expiry). This allows for lighter full nodes.
+- The Portal Network enables  `eth_getProof` responses from a peer-to-peer network solving the problem of lightweight decentralized access to the state.
+- The Portal Network provides decentralized access to historical block data, enabling EIP 4444 (history expiry), allowing for lighter full nodes.
 - Full nodes can be made lighter by expiring state data, but this requires multiple difficult protocol upgrades. (non inclusive list is Verkle tries, and address space expansion)
-- Proof systems such as SNARKs are already being used to verify sync committees, but they will likely be used to verify execution, such as the state transition function.
+- There are currently no lightweight ways for clients to verify block execution.  Proof systems such as SNARKs are expected to enable lightweight verification state transitions but more research is required.
 - Further into the future, stateless clients will provide very lightweight access to Ethereum, but there are substantial prerequisites that must be shipped first, including Verkle tries.
 
 ## What is a light client?
 
 A light client is a piece of software that provides access to Ethereum data without storing large amounts locally. This allows users to interact with Ethereum cheaply with minimal hardware requirements.
 
-This very broad definition encompasses a spectrum of designs ranging from apps that request data from an RPC provider and forward it to the user unchecked, right through to clients that verify proofs demonstrating that incoming data was both correctly computed and attested by a supermajority of Ethereum validators. 
+This very broad definition encompasses a spectrum of designs ranging from apps that request data from an RPC provider and forward it to the user unchecked, right through to clients that use proofs demonstrating strong cryptographic guarantees about the validity of incoming data. 
 
 Many would not consider the “unchecked RPC forwarding app” to be a light client. Typically, people understand “light client” to include some form of verification. 
 
