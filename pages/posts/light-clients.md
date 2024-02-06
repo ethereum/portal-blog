@@ -207,8 +207,6 @@ The light clients that exist today are primarily consensus light clients that ge
 
 Getting this execution data requires trusting a third party RPC provider to provide honest data without censoring or doing anything nefarious with your information. Some RPC providers expose `eth_getProof` so that you can independently verify the data they provide against a state root from a trusted block header, but some don’t. 
 
-The table below shows which RPC methods are exposed by each of three clients representing a full (execution + Beacon) client, two light clients ([Lodestar’s light client rpc-prover app](https://chainsafe.github.io/lodestar/lightclient-prover/prover/) and [Helios](https://github.com/a16z/helios/blob/master/rpc.md)) and a Portal client (could be Trin, Fluffy or Ultralight - they aim for feature parity). 
-
 The shortest path to decentralized light clients is swapping out centralized RPC endpoints for a decentralized alternative. The Portal Network is the solution for this, as it provides consensus and execution data on a peer-to-peer network. However, the Portal Network is not fully operational yet. 
 
 The Portal History network will be the first to be fully available. This is expected to happen in the first half of 2024. As soon as this happens, Ethereum client teams could ship EIP 4444 (history expiry) and dramatically lighten Ethereum full nodes. The Portal History network allows historical data to be distributed across all the Portal nodes, with redundancy, so that it can still easily be requested by full nodes when it is needed, but without any specific node having to allocate large amounts of storage.
