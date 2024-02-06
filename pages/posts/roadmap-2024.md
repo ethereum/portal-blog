@@ -77,7 +77,7 @@ Longer term, there are proposals for more sub-protocols that serve granular tran
     - Key result 1:
         -  Portal State subprotocol is fully featured according to the canonical specification and there is feature parity across all three Portal clients. 
     -  Key result 2:
-        -  State network never drops below 99% score on Glados
+        -  State network audits on Glados for recent states never drops below 99%.
     -  Key result 3:
         - \>=1 application or client using Portal State network to request `eth_getProof` data
 
@@ -86,6 +86,8 @@ Longer term, there are proposals for more sub-protocols that serve granular tran
         - Glados maintains 99% uptime and is able to handle high volume of traffic (up to 10^5 visits/day)
     - Key result 2:
         - Portal Hive has 100% test coverage for all core functionality for all three networks across all three flagship Portal clients
+    - Key result 3:
+        - Glados provides network audit statistics for the history, beacon, and state networks
 
 
 - **Objective 5: Communicate effectively with users and developers**
