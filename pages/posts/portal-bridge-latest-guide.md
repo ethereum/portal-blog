@@ -69,4 +69,4 @@ We will be deploying a Portal Bridge using the free tier of Infura. The bridge w
 
 </details>
 
-**Tada** you should now see a stream of logs and hopefully a few GossipReport or trin_history stats of successful transfer
+**Tada** you are now providing the Portal Network with very valuable data! You should see a stream of logs indicating that your bridge is finding new headers from the provider and serving them to the network.
