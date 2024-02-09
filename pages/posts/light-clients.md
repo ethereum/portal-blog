@@ -15,7 +15,7 @@ author: jmc
 - The Portal Network provides decentralized access to historical block data, enabling EIP 4444 (history expiry), allowing for lighter full nodes.
 - Full nodes can be made lighter by expiring state data, but this requires multiple difficult protocol upgrades. (non inclusive list is Verkle tries, and address space expansion)
 - There are currently no lightweight ways for clients to verify block execution.  Proof systems such as SNARKs are expected to enable lightweight verification state transitions but more research is required.
-- Further into the future, stateless clients will provide very lightweight access to Ethereum, but there are substantial prerequisites that must be shipped first, including Verkle tries.
+- Further into the future, stateless clients will provide very lightweight Ethereum nodes that can support validators and gossip transactions but cannot answer questions about Ethereum's state. There are substantial prerequisites that must be shipped before stateless clients can exist, including Verkle tries.
 
 ## What is a light client?
 
@@ -86,7 +86,7 @@ The Beacon light client protocol only provides lightweight access to summary con
 
 ### What can we do with consensus light clients?
 
-Consensus light clients are those that follow the tip of the chain using the Beacon light client sync protocol. There are also clients, such as Helios and Succinct, that are working on achieving the same by verifying SNARKs over the sync protocol rather then verifyign the sync committee signatures - more on this later.
+Consensus light clients are those that follow the tip of the chain using the Beacon light client sync protocol. There are also clients, such as [DendrETH](https://github.com/metacraft-labs/DendrETH) that are working on achieving the same by verifying SNARKs over the sync protocol rather then verifying the sync committee signatures - more on this later.
 
 Consensus light clients are useful for three main reasons:
 
@@ -191,31 +191,32 @@ The core idea of statelessness is that block proposers generate witnesses (small
 - block production is centralizing around a few advanced operators anyway due to competition for MEV
 - it is extremely difficult for centralized block producers to act dishonestly when the majority of consumers are fully verifying each block
 
+Stateless clients will be able to verify state changes from one block to the next, which is sufficient to run a very lightweight validating node. They can also use witnesses to gossip transactions. However, they will not have the full functionality of today's full nodes. This is because they won't have access to state data, meaning they can't answer questions about the state. The value of stateless clients is that they allow for very lightweight validators and make state storage optional rather than required.
+
 There are also proof-based models for light clients short of a fully stateless Ethereum. Instead of trusting light client updates emitted by full nodes, a light client could receive updates in the form of a summary of changes and a proof. The proof can be verified and the light client can apply the updates without having to re-execute transactions. Confirming that the Ethereum protocol rules were followed is a process of quickly and cheaply verifying the proof instead of re-executing the transactions and/or checking signatures.
 
-There are already [light clients that verify SNARKs](https://blog.succinct.xyz/introducing-telepathy/) (a type of cryptographic proof) over the sync committee protocol, which can be done more cheaply than verifying the signatures themselves. A light client can verify the proof and accept the new block header, confident that it was signed off by the correct sync committee. The proof verification is extremely fast, usually taking tens of milliseconds. It is much faster to verify a computation than to actually perform one. 
+There are already [light clients that verify SNARKs](https://github.com/metacraft-labs/DendrETH) (a type of cryptographic proof) over the light client syncing algorithm. A light client can verify the proof and accept the new block header, confident that it was signed off by the correct sync committee. The proof verification is extremely fast, usually taking tens of milliseconds. It is much faster to verify a computation than to actually perform one. 
 
-A similar process could also be used to verify state transitions, which would allow light execution clients to verify the validity of the transactions in a block without actually having to execute them. The light client would receive a set of *changes* the were applied between one block and the next and a pair of Merkle proofs for each change (proving the pre-state and the post-state data). This data forms the *witness*. A proof can then be constructed that is much smaller than the witness itself, that demonstrates that the witness, processed according to the Ethereum protocol rules, really geenrates the given post-state. The light client only has to verify the proof to be able to confidently accept the post-state, rather than having to confirm by re-executing transactions as today’s full nodes do.
+A similar process could also be used to verify state transitions, which would allow light execution clients to verify the validity of the transactions in a block without actually having to execute them. The light client would receive a set of *changes* the were applied between one block and the next and a pair of Merkle proofs for each change (proving the pre-state and the post-state data). This data forms the *witness*. A proof can then be constructed that is much smaller than the witness itself, that demonstrates that the witness, processed according to the Ethereum protocol rules, really generates the given post-state. The light client only has to verify the proof to be able to confidently accept the post-state, rather than having to confirm by re-executing transactions as today’s full nodes do.
 
-An extremely lightweight node could be created that only verifies proofs representing the sync committee protocol and state transition function, enablign both consensus and execution to be verified without the need for lots of local storage and transaction execution.
+An extremely lightweight node could be created that only verifies proofs representing the sync committee protocol and state transition function, enabling both consensus and execution to be verified without the need for lots of local storage and transaction execution.
 
-So where's the trade-off? The trade-off is that although verifying a proof is very cheap, *generating* the proof is very expensive. Where verifying a proof may take tens of milliseconds, generating it may take tens of minutes. This is the responsibility of the block-producing full node, adding substantially to an already fairly heavy workload for those nodes. It might eventually require specialized hardware such as GPU arrays or FGPAs. Increasing hardware requirements is generally considered to be a centralizing force.
+So where's the trade-off? The trade-off is that although verifying a proof is very cheap, *generating* the proof is very expensive. Where verifying a proof may take tens of milliseconds, generating it may take tens of minutes. This is the responsibility of the block-producing full node, adding substantially to an already fairly heavy workload for those nodes. It might eventually require specialized hardware. Increasing hardware requirements is generally considered to be a centralizing force.
 
 ### Where are we today?
 
-The light clients that exist today are primarily consensus light clients (e.g. [Lodestar](https://chainsafe.github.io/lodestar/lightclient-prover/prover/), [Helios](https://github.com/a16z/helios/blob/master/rpc.md), [Nimbus]( https://github.com/status-im/nimbus-eth1/tree/master/nimbus_verified_proxy)) that get their data from RPC requests to a full node and verify against state roots embedded in Beacon block headers. Typically the light client verifies the sync committee signatures, but some experimental clients [verify SNARKs over the sync committee protocol](https://github.com/succinctlabs/eth-proof-of-consensus?ref=blog.succinct.xyz) instead, achieving the same thing but with less computation. Either way, these consensus clients require access to execution data to do anything more interesting than tracking the tip of the chain.
+The light clients that exist today are primarily consensus light clients (e.g. [Lodestar](https://chainsafe.github.io/lodestar/lightclient-prover/prover/), [Helios](https://github.com/a16z/helios/blob/master/rpc.md), [Nimbus]( https://github.com/status-im/nimbus-eth1/tree/master/nimbus_verified_proxy)) that get their data from RPC requests to a full node and verify against state roots embedded in Beacon block headers. Typically the light client verifies the sync committee signatures, but some new clients [verify SNARKs over the light client syncing protocol](https://github.com/metacraft-labs/DendrETH) instead, achieving the same thing but with less computation. [DendrETH](https://github.com/metacraft-labs/DendrETH/tree/main#one-shot-syncing-simulation) includes a light client variant that uses recursive SNARKs to enable Ethereum clients to do "one-shot" syncing (syncing up toa sync committee period just by verifying a proof) in around a millisecond, rather than having to re-execute historical blocks. [DendrETH](https://github.com/metacraft-labs/DendrETH/tree/main) and [Telepathy](https://github.com/succinctlabs/telepathyx) have also implemented SNARK-based light clients as smart contracts to facilitate cross-chain bridges.
+
+However, consensus clients require access to execution data to do anything more than tracking the tip of the chain.
 
 Getting this execution data requires trusting a third party RPC provider to provide honest data without censoring or doing anything nefarious with your information. Some RPC providers expose `eth_getProof` so that you can independently verify the data they provide against a state root from a trusted block header, but some don’t. 
 
-The shortest path to decentralized light clients is swapping out centralized RPC endpoints for a decentralized alternative. The Portal Network is the solution for this, as it provides consensus and execution data on a peer-to-peer network. However, the Portal Network is not fully operational yet. 
+The shortest path to decentralized light clients is swapping out centralized RPC endpoints for a decentralized alternative. The Portal Network is a solution for this, as it provides consensus and execution data on a peer-to-peer network. However, the Portal Network is not fully operational yet. 
 
 The Portal History network will be the first to be fully available. This is expected to happen in the first half of 2024. As soon as this happens, Ethereum client teams could ship EIP 4444 (history expiry) and dramatically lighten Ethereum full nodes. The Portal History network allows historical data to be distributed across all the Portal nodes, with redundancy, so that it can still easily be requested by full nodes when it is needed, but without any specific node having to allocate large amounts of storage.
 
-The History sub-protocol alone is not sufficient for serving a new generation of light clients. For this, there has to be a way for the Portal Network to serve the RPC endpoints that touch Ethereum’s state, such as `eth_getProof` as well as providing a decentralized source of Beacon block headers that contain the latest state root.  This requires the Portal State and Portal Beacon networks to be fully featured and populated with state data. This is also expected to happen in 2024.
+The History sub-protocol alone is not sufficient for serving a new generation of light clients. For this, there has to be a way for the Portal Network to serve the RPC endpoints that touch Ethereum’s state, such as `eth_getProof` as well as providing a decentralized source of Beacon block headers that contain the latest state root. This requires the Portal State and Portal Beacon networks to be fully featured and populated with state data. This is also expected to happen in 2024.
 
-While there are [SNARK based consensus clients](https://blog.succinct.xyz/introducing-telepathy/), SNARK-based execution light clients don’t *seem* likely to be production ready until at least 2025, based on the fact that most development seems to be happening on proof-of-concepts and there are some infrastructural developments that need to happen to support such a system - like dedicated provers coming online. Similarly, stateless Ethereum has been thoroughly researched but launching on Mainnet might prove to be somewhat contentious and is anyway blocked on some substantial prerequisite upgrades including Verkle tries and enshrined proposer-builder separation. 
-
-Moving to stateless Ethereum clients requires some entitiies to come online with enough technical know-how and hardware resources to act as provers, and to gossip proofs fairly across the network of Ethereum nodes now acting as verifiers. It seems plausible that the Portal Network could be a viable solution here too, with provers piping their data into a dedicated Portal sub-protocol that handles the distribution of proofs to verifying nodes.
 
 **Portal Network:** **What's the catch?**
 
@@ -225,17 +226,17 @@ Grabbing data from Portal Network is slow compared to looking it up from a local
 
 ### Outlook
 
-Light clients are finally on their way, but there are still some headwinds to overcome. The first major unlock will be the Portal Network having fully featured and data-rich history, state and beacon subnetworks, as this will enable decentralized RPC access to all the data light clients need to verify proofs and track the head of the canonical chain, while full nodes will be able to prune their historical data confident that the necessary information is archived on the Portal Network. 
+Light clients are finally on their way, but there are still some headwinds. The first major unlock will be the Portal Network having fully featured and data-rich history, state and beacon subnetworks, as this will enable decentralized RPC access to all the data light clients need to verify proofs and track the head of the canonical chain, while full nodes will be able to prune their historical data confident that the necessary information is archived on the Portal Network. 
 
-While proof-based light clients and stateless Ethereum are still quite a way off, 2024 is shaping up to be a pivotal year for light clients, largely because of the Portal Network sub-protocols coming online and supporting decentralized access to consensus and execution data. Once this happens, it should be a small task to upgrade light clients by swapping out their RPC provider for a Portal client. It is expected that some Ethereum client teams will start to integrate the Portal Network specification into their clients directly rather than running parallel Portal clients. 
+2024 is shaping up to be a pivotal year for light clients, largely because of the Portal Network sub-protocols coming online and supporting decentralized access to consensus and execution data. Once this happens, it should be a small task to upgrade light clients by swapping out their RPC provider for a Portal client. It is expected that some Ethereum client teams will start to integrate the Portal Network specification into their clients directly rather than running parallel Portal clients. At the same time, proof-based light clients will continue to advance and Ethereum researchers and developers will keep progressing the stateless roadmap.
 
-In summary, some exciting things to watch out for in the light client space in 2024 are:
+In summary, some exciting possibilities to watch out for in the light client space in 2024 are:
 
 - Portal Network shipping the History sub-protocol, enabling history expiry in Ethereum clients
 - Portal Network shipping the Beacon sub-protocol, enabling decentralized access to the latest canonical block headers for light clients
 - Portal Network shipping the State sub-protocol, enabling decentralized access to Ethereum state data, including `eth_getProof`.
 - Ethereum client teams implementing the Portal specification directly into Ethereum clients, making it easier to access Portal data.
-- Ethereum researchers and client developers advancing Verkle tries and ePBS
+- Ethereum researchers and developers moving closer to shipping Verkle trees, ePBS, statelessness and more!
 
 ## Further Reading and references
 
@@ -255,4 +256,6 @@ In summary, some exciting things to watch out for in the light client space in 2
 
 [Roman Dvorkin’s Devconnect talk on light nodes](https://app.streameth.org/devconnect/light_client_summit/session/remote_presenter_building_a_trustless_lightclient_assistant_in_your_browser)
 
-[Succint's Telepathy SNARK-based consensus light client](https://blog.succinct.xyz/introducing-telepathy/)
+[DendrETH consensus light client](https://github.com/metacraft-labs/DendrETH)
+
+[Succint's Telepathy SNARK-based bridge client](https://blog.succinct.xyz/introducing-telepathy/)
