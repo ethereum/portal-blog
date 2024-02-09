@@ -1,4 +1,3 @@
-
 ---
 title: Portal Network 2024 roadmap
 date: 2024/2/1
@@ -16,7 +15,7 @@ This document aims to outline the 2024 core team & product roadmap for Portal Ne
 
 The Portal Network core team is a small (<15 person) collaborative effort focused on bulding a decentralized peer-to-peer network for storing and serving data from the execution and consensus layers of the Ethereum protocol. The Portal project is composed of three independent client teams each implementing the Portal Network specification in different languages: Trin (Rust), Ultralight (Typescript) and Fluffy (Nim), plus cross-client efforts to build out tooling and testing infrastructure. 
 
-Our sustained focus is on shipping the minimum network functionality necessary to serve all of the Execution layer data.  This includes the three client implementations which each support the three sub-protocols that house and serve this data, tooling such as our network health monitor ((GladOS)[https://github.com/ethereum/glados]), interoperability testing via Hive, and the "bridge" node functionality which is responsible for pushing data into the Portal Network.
+Our sustained focus is on shipping the minimum network functionality necessary to serve all of the Execution layer data.  This includes the three client implementations which each support the three sub-protocols that house and serve this data, tooling such as our network health monitor ([GladOS](https://github.com/ethereum/glados)), interoperability testing via Hive, and the "bridge" node functionality which is responsible for pushing data into the Portal Network.
 
 Additionally, we allocate a significant portion of our time to support the practical adoption of this technology by client and app teams around the world.
 
@@ -92,7 +91,7 @@ Longer term, there are proposals for more sub-protocols that serve granular tran
 
 - **Objective 5: Communicate effectively with users and developers**
     - Key result 1: 
-        - Github issues and comments across the Portal specs, Glados, and client repositories are always responded to (even if just an acknowledgement of receipt) in less than 3 days.
+        - Github issues and comments across the Portal specs, Glados, and client repositories are always responded to (even if just an acknowledgement of receipt) within 3 days.
     - Key result 2: 
         - New features and milestones are reported via the Portal blog within 1 month of final PR being merged.
     - Key result 3:
@@ -122,7 +121,7 @@ These are longer term objectives that might be researched and discussed during 2
 
 ## Where are we now?
 
-The Portal Network has existed for 5 years, during which time there have been substantial course corrections and redesigns in response to the evolving wider Ethereum landscape. Today, Portal Network is actively deploying infrastructure that will benefit large parts of the Ethereum ecosystem. 2024 is expected to be a pivotal year, where we focus on moving what were previously R&D projects into production and focusing on growing adoption for our core features: the History network, State network and Beacon network.
+The Portal Network has existed for several years, during which time there have been substantial course corrections and redesigns in response to the evolving wider Ethereum landscape. Today, Portal Network is actively deploying infrastructure that will benefit large parts of the Ethereum ecosystem. 2024 is expected to be a pivotal year, where we focus on moving what were previously R&D projects into production and focusing on growing adoption for our core features: the History network, State network and Beacon network.
 
 In the first instance, users will be expected to run Portal clients to expose a subset of Ethereum RPC methods. The list of methods will grow steadily over the first half of 2024 until almost all of the `eth` namespace methods can be served from Portal data. However, we also intend to collaborate with Ethereum client teams to help them to implement the Portal specification directly in existing execution clients, circumventing the need to run additional clients. 
 
@@ -192,8 +191,8 @@ To achieve our mission, we’re focused on 5 major workstreams that comprise our
 - Team members also publish javascript based visualizations of client activity and protocol components as developer tools and eductional resources.
 - The Ultralight team has focused on State Network R&D, and will develop the current prototype into a fully-featured spec complete implementation with interop testing suite.
 - Specific challenges they might encounter in delivering the 2024 roadmap include...
-  - Manpower - the current developers both work full time on the EthereumJS client, and contribute to Ultralight with the time and resources granted by their primary team.
-  - Brower network incompatibilities - Browsers and Mobile devices present unique challenges from both technical and security issues.  The solutions involve modifying the NodeJS Ultralight client for browser compatibility, developing strategies against attack vectors unique to browsers, and implementing unique NAT traversal protocols. 
+  - Personpower - the current developers both work full time on the EthereumJS client, and contribute to Ultralight with the time and resources granted by their primary team.
+  - Browser network incompatibilities - Browsers and Mobile devices present unique challenges from both technical and security issues.  The solutions involve modifying the NodeJS Ultralight client for browser compatibility, developing strategies against attack vectors unique to browsers, and implementing unique NAT traversal protocols. 
 
 ### 4) Glados
 
@@ -208,24 +207,19 @@ To achieve our mission, we’re focused on 5 major workstreams that comprise our
 
 ## Risks for 2024
 
-Potential hurdles or challenges that would prevent our team from completing our priorities
+Potential hurdles or challenges that would prevent our team from completing our priorities include:
 
-1) **Integration risks**
-- **Risk 1** it is possible that we have overestimated the demand for Portal Network infrastructure. We do not expect this to be true because we have explicitly surveyed client and app teams and we sense that there is pent up enthusiasm for the benefits Portal Network confers.
+- **Risk 1**: It is possible that we have overestimated the demand for Portal Network. We do not expect this to be true because we have explicitly surveyed client and app teams and we sense that there is pent up enthusiasm for the benefits Portal Network confers.
 
     **Mitigation**: - If it turns out we have overestimated demand for History, State or Beacon data we will reconnect with client and app teams to explain the benefits in more detail, and also put additional effort into public-facing communications including more frequent blog posts and articles. We will also focus on revisiting fundamental concepts such as "don't trust, verify" and the problems with relying on centralized RPC providers.
 
+- **Risk 2** Portal is shipping new technology without good historical analogs, meaning there is implementation risk. Each client is complex and navigating uncharted territory.
 
-2) **Implementation risks**
-- what is the worst case scenario if we ship history, state or beacon networks with bugs?
-- how are we going to mitigate those risks
-- what if one client lags the others and can't make feature parity?
-- how could someone attack the Portal Network, and how can we protect it?
+    **Mitigation**: We are putting substantial effort into our monitoring and testing infrastructure, including PortalHive for cross-client testing.
 
-1) **Technical complexity**
+- **Risk 3** Clients do not advance at similar rates and lose cross-client feature parity
 
-- Portal is shipping new technology without good historical analogs. Each client is complex and navigating uncharted territory.
-- Mitigation includes Portal hive, fuzz testing etc
+    **Mitigation**: We have automated interoperability testing, weekly all-hands sync calls and async communications through Discord that allow us to keep up to date with each client's progress and avoid any one client team becoming siloed. It is possible to reorganize elements of the roadmap and reallocate some resources to if necessary. 
 
 
 ## Summary
