@@ -65,7 +65,7 @@ We will be deploying a Portal Bridge using the free tier of Infura. The bridge w
 
 **Step 4:** clone portal-accumulators `git clone https://github.com/ethereum/portal-accumulators.git`
 
-**Step 5:** run the bridge (make sure to `<put infura url/(api key) here>` with your Infura api key url you got earlier) `cargo run -p portal-bridge -- --executable-path ./target/debug/trin --mode latest --el-provider <put infura url/(api key) here> --el-provider-request-limit 100000 --epoch-accumulator-path ./portal-accumulators trin`
+**Step 5:** run the bridge (make sure to `<put infura url/(api key) here>` with your Infura api key url you got earlier) `cargo run -p portal-bridge -- --executable-path ./target/debug/trin --mode latest --el-provider <put infura url with api key here> --epoch-accumulator-path ./portal-accumulators trin`
 
 </details>
 
