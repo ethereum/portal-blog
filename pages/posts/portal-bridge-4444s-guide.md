@@ -7,7 +7,7 @@ author: Kolby ML (Moroz Liebl)
 ---
 
 # What is a Portal Bridge?
-A Portal Bridge is an application which takes Ethereum mainnet data from a source, feeds it into a Portal client who then injects the data into the Portal sub-networks.
+A Portal Bridge is an application which takes Ethereum mainnet data from a source, feeds it into a Portal client who then injects the data into the various Portal sub-networks.
 
 # What are we doing in this guide?
 We will be deploying a Portal Bridge that will feed the Portal history subnetwork with 4444s data. Currently, this refers to all pre-merge chain history data. We will feed this data into the the Portal History network, which is a Portal sub-network that stores canonical Ethereum mainnet headers, block bodies, and receipts. The Portal Bridge will be using [era1](https://github.com/ethereum/go-ethereum/pull/26621) files to source the data. These files are hosted at `https://era1.ethportal.net`.
