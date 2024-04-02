@@ -7,9 +7,9 @@ author: Piper Merriam
 ---
 
 We commonly get asked why we don't use one of the various general purpose
-distributed storage networks (like Filecoin/IPFS).  Baked into this question is
-an assumption that general purpose storage networks would solve the problem
-that Portal is aiming to solve.
+distributed storage networks (like Filecoin/IPFS or Bittorrent).  Baked into
+this question is an assumption that general purpose storage networks would
+solve the problem that Portal is aiming to solve.
 
 ## Problem 1: Content Addressing
 
@@ -28,7 +28,7 @@ cannot be added to the Portal Network, and thus, ensure that the network cannot
 be abused or spammed with superfluous data.
 
 In order for a general purpose storage network to work for Ethereum's data, it
-would require it's content addressing scheme to support every method of
+would require its content addressing scheme to support every method of
 cryptographic anchoring used for Ethereum data.  For most networks this isn't
 possible.
 
@@ -48,7 +48,7 @@ for the protocol, this would mean that individual users would likely be storing
 some mixture of Ethereum data and *other* data.
 
 In order for Portal Network to be useful, it must provide reliable access to
-the data it's users want.  Since the Ethereum data is all canonically anchored,
+the data its users want.  Since the Ethereum data is all canonically anchored,
 that means at any given time there is a finite quantity of data that needs to
 be stored, and thus there is a finite amount of capacity that must be sourced
 from the network to store it.
@@ -93,7 +93,7 @@ logic and more complex data types from the Beacon chain light client protocol.
 Additionally, it requires some out-of-band information to be able to properly
 anchor to the canonical chain.
 
-The State nettwork is also quite complex.  It implements complex data types and
+The State network is also quite complex.  It implements complex data types and
 validation logic for handling and distributing state data. It implements a
 model where the payloads for data being Gossip'd are different from the
 payloads for when data is being retrieved.  The network requires complex logic
@@ -110,6 +110,6 @@ protocol, making general purpose networks not suitable for our use case.
 ## Conclusion
 
 Hopefully this sheds some light on why the Portal Network has chosen to build
-it's own storage network. General purpose storage networks are an exciting and
+its own storage network. General purpose storage networks are an exciting and
 new space.  Projects like [IPLD](https://ipld.io/) are promising in solving
 some of these problems.  There is so much room for innovation in this area.
