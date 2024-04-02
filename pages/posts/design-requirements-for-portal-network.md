@@ -1,6 +1,6 @@
 ---
 title: Portal Network Design Requirements
-date: 2024/03/15
+date: 2024/04/08
 description: Trying to write down some of the various requirements that are required for Portal Network protocol designs.
 tag: project, p2p, storage, protocol, peer-to-peer
 author: Piper Merriam
@@ -54,6 +54,8 @@ specifications and using *double batched merkle log accumulators*.  These
 accumulators allow for users to verify a header is canonical by verifying a
 small merkle proof instead of needing to verifying the entire historical chain
 of hashes.
+
+In general, this principle must apply to all data in our networks.
 
 
 ### Amplification Attacks
