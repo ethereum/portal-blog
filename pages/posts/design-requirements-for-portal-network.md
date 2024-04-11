@@ -96,3 +96,13 @@ individual node addresses in the DHT are uniformly and randomly distributed,
 this would mean that data in this region would be replicated less and more
 likely to be distcarded from those nodes storage as more and more data gets
 assigned to that area of the network.
+
+
+### Continuing to build and design Portal
+
+The framework that we've built thus far in Portal has the potential to
+transform Ethereum's data and peer-to-peer ecosystems.  We've only just begun
+to scratch the surface with what is possible.  As our networks mature in the
+coming years you should expect to see these design principles applied to things
+like Data Availability Sampling and Blobs, more areas of the Beacon chain data
+and Verkle tries and possibly L2 infrastructure as well.
