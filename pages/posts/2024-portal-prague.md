@@ -27,6 +27,8 @@ inherently friendly towards broader participation and easier access.
 
 ## Roadmap
 
+> TODO: Roadmap pictures
+
 One of the more important discussions we had this week was setting our roadmap
 items for both the near term future as well as discussion the dependency chain
 for our longer term plans.  In the short term, our focus remains to deliver the
@@ -66,6 +68,8 @@ our three initial networks by Devcon.
 
 ## State Network
 
+> TODO: Picture of something state related
+
 Our primary focus here is delivery of our initial stage of the network which
 implements full archival storage of all historical state in time for Devcon
 2024. We spent most of our time focused on the development dependencies needed
@@ -102,6 +106,8 @@ syncing of archival nodes.  This topic is still being actively researched.
 
 ## Verkle & Portal
 
+> TODO: Holger's picture of milos
+
 Related to state data, we also spend some time discussing Verkle tries which
 will change to how Ethereum stores state data. Milos Stankovic has been doing
 research on how Portal can handle Verkle.  Luckily, most of our plans for how
@@ -112,6 +118,8 @@ Verkle.
 
 
 ## 4444s and Execution Clients
+
+> TODO: Picture
 
 [EIP-4444](https://eips.ethereum.org/EIPS/eip-4444) was originally authored in
 2021 and advocates for execution layer (EL) clients to drop chain history for
@@ -129,6 +137,8 @@ proposing to EL teams to provide them with support in integrating with the
 Portal history network with the expressed goal of delivering 4444s this year.
 
 ## Glados
+
+> TODO: Picture
 
 Glados is our network monitoring infrastructure. It provide visibility into the
 current and historical status of our live networks. During the summit we
