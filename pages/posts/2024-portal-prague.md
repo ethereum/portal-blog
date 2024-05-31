@@ -146,3 +146,50 @@ discussed future plans for more graphs and information we want from Glados and
 new types of monitoring that we want to be possible.  Glados has continued to
 be a key driver in our development process. It tells us important metrics about
 our network as well as helping us identify problems as they occur.
+
+
+## Longer Term Designs and Plans
+
+During our discussions we covered a number of research topics focused on
+solving longer term problems and protocol designs.  Some of the "simpler"
+things in this category are ideas around how to support "super" nodes on our
+network that store an above average amount of data.  The way our DHT storage
+and retrieval mechanism is built makes it discover content on nodes that are
+very far away from that content address.  This is simply an inherent property
+of how the DHT/Kademlia routing works.  To solve this, we are exploring how to
+have our clients represent themselves on the network in multiple locations
+which makes them inherently easier to discover since each of these network
+identities would be an entry point into getting at the content they store.
+
+Another major topic of research is around a scheme for storing large SSZ
+objects in our network.  This feature would enable our networks to do more
+efficient bulk storage of things like deep history data or potentially even
+deep archives of very old state data.  Thes storage format this offers can be
+significantly more efficient than many of our current models.  The biggest
+benefit we see from this approach is bulk downloading of this data, very much
+similiar to being able to "torrent" this data from our networks.  This would
+allow for bulk syncing of the history data and possibly even fast bootstrapping
+of full archive nodes.
+
+These topics are still actively being researched.
+
+
+## Conclusion
+
+![Group picture](../../public/images/2024-prague-group.jpeg)
+
+This was our second Portal summit and it was impressive to see how far everyone
+on the project has come both in their expertise with the Portal protocol itself
+as well as their broader knowledge and understanding of the Ethereum protocols.
+The am left with a deep feeling of satisfaction and excitement.  The Portal
+protocol is something I first imagined a full four years ago.  During that four
+years the teams and engineers working on the various clients have turned that
+idea into a well specificed protocol with four distinct clients and a growing
+suite of monitoring and testing infrastructure.  My satisfaction comes from
+seeing the tangible imminence of the thing that was imagined being something
+that is real.  And my exitement is in having tangible results in a live
+production network that we can point to to demonstrate the results of our work.
+
+This project was always meant to be revolutionary at the execution layer. We
+are well on our way to delivering a new class of Ethereum execution client and
+I'm excited to show all of you the future of Ethereum's execution layer.
