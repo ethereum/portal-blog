@@ -181,7 +181,7 @@ These topics are still actively being researched.
 This was our second Portal summit and it was impressive to see how far everyone
 on the project has come both in their expertise with the Portal protocol itself
 as well as their broader knowledge and understanding of the Ethereum protocols.
-The am left with a deep feeling of satisfaction and excitement.  The Portal
+The team left with a deep feeling of satisfaction and excitement.  The Portal
 protocol is something I first imagined a full four years ago.  During that four
 years the teams and engineers working on the various clients have turned that
 idea into a well specified protocol with four distinct clients and a growing
