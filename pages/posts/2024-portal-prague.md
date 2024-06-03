@@ -13,16 +13,17 @@ last two days have been full of deep discussions about the Portal protocol,
 pouring over our designs and plans.  Much of our time has been focused on the
 near term plans for finishing our MVP goals of delivering our three core
 networks that are slated to deliver unprecedented access to Ethereum's
-Execution data, free of long sync times and expensive hardware requirements.
+Execution data, freeing users of long sync times and heavy hardware
+requirements.
 
 - The Beacon network allows clients to follow the HEAD of the chain.
 - The History network delivers access to the chain history, serving headers and block bodies
 - The State network provides a full archive of Ethereum's account and contract state data
 
 Since Ethereum's launch, this data has been locked away behind the high cost of
-running an Ethereum full node.  The goal of Portal has always been to shift the
-core paradigms of Ethereum's peer-to-peer distributed networks away from the
-status quo of priviledged access to this data into an egalitarian model that is
+running an Ethereum full node.  The goal of Portal is to shift the core
+paradigms of Ethereum's peer-to-peer distributed networks away from the status
+quo of priviledged access to this data into an egalitarian model that is
 inherently friendly towards broader participation and easier access.  
 
 ## Roadmap
@@ -32,7 +33,8 @@ inherently friendly towards broader participation and easier access.
 One of the more important discussions we had this week was setting our roadmap
 items for both the near term future as well as discussion the dependency chain
 for our longer term plans.  In the short term, our focus remains to deliver the
-core data needed by execution layer clients.
+core data needed by execution layer clients.  This is our MVP and we are on
+track to deliver it by the end of 2024.
 
 The Portal History network is largely feature complete.  The only remaining work is
 centered around handling proofs for the most recent headers that are entering
@@ -42,9 +44,9 @@ data to be canonically anchored, which requires proofs against the
 during the roughly 27 hour period during which the latest batch of the
 accumulator is still filling up.  Our teams are still deciding on a strategy
 for how clients will handle these ephemerally proven headers at the tip of the
-chain as they pass beyond the period boundary. One of our main take-aways for
-our history network is ready for 4444s adoption and we consider the network as
-a whole to be in "production" status.
+chain as they pass beyond the period boundary. One of our main take-aways from
+the roadmap discussion is that the history network is ready for 4444s adoption
+and we consider the network as a whole to be in "production" status.
 
 The Portal Beacon network is also largely feature complete. The individual client
 implementations are implementing logic to handle trusted beacon chain block
@@ -54,14 +56,14 @@ this data for our beacon network bridges.  The beacon network is still in the
 last stages of development and is expected to enter production over the next
 1-2 months.
 
-The Portal State network is under active development. We are on track for
-delivering the initial phase of our state network by Devcon 2024, which will
-support fetching arbitrary state data from tip of the chain. Both the Trin and
-Ultralight clients have implemented state bridges in their client which can
-start at the genesis state, execute the next block, extract the state diff, and
-gossip all of the state data into the network. We have run some small
-experiments to validate our designs and are now moving onto full
-implementations in our clients.
+The Portal State network is under active development across all portal client
+teams. We are on track for delivering the initial phase of our state network by
+Devcon 2024, which will support fetching arbitrary state data from tip of the
+chain. Both the Trin and Ultralight clients have implemented state bridges in
+their client which can start at the genesis state, execute the next block,
+extract the state diff, and gossip all of the state data into the network. We
+have run some small experiments to validate our designs and are now moving onto
+full implementations in our clients.
 
 All of this puts the Portal project on-track to deliver the production MVP of
 our three initial networks by Devcon.
@@ -70,13 +72,14 @@ our three initial networks by Devcon.
 
 ![State trie diagram](../../public/images/2024-prague-state-diagram.jpeg)
 
-Our primary focus here is delivery of our initial stage of the network which
+Our primary focus here is delivery of the initial stage of the network which
 implements full archival storage of all historical state in time for Devcon
 2024. We spent most of our time focused on the development dependencies needed
 to make this timeline a reality. Most of the work that is still to be done is
 in our bridge infrastructure which is responsible for generating all fo the
 trie data and gossiping it into our network. Our client teams have found that
-supporting the actual content types for state network is relatively simple. Our
+supporting the actual content types for state network is relatively simple. The
+complexity is in the sheer scale and magnitude of Ethereum's state data.  Our
 current plan is to initialize our network with a snapshot of the state taken
 near the tip while in parallel we work forward from genesis to backfill all of
 the historical state data.
@@ -142,10 +145,11 @@ Portal history network with the expressed goal of delivering 4444s this year.
 
 Glados is our network monitoring infrastructure. It provides visibility into the
 current and historical status of our live networks. During the summit we
-discussed future plans for more graphs and information we want from Glados and
-new types of monitoring that we want to be possible.  Glados has continued to
-be a key driver in our development process. It tells us important metrics about
-our network as well as helping us identify problems as they occur.
+discussed future plans for more graphs, visualizations and information we want
+from Glados and new types of monitoring that we need to gather the necessary
+data.  Glados has continued to be a key driver in our development process. It
+tells us important metrics about our network as well as helping us identify
+problems as they occur.
 
 
 ## Longer Term Designs and Plans
@@ -154,12 +158,13 @@ During our discussions we covered a number of research topics focused on
 solving longer term problems and protocol designs.  Some of the "simpler"
 things in this category are ideas around how to support "super" nodes on our
 network that store an above average amount of data.  The way our DHT storage
-and retrieval mechanism is built makes it discover content on nodes that are
-very far away from that content address.  This is simply an inherent property
-of how the DHT/Kademlia routing works.  To solve this, we are exploring how to
-have our clients represent themselves on the network in multiple locations
-which makes them inherently easier to discover since each of these network
-identities would be an entry point into getting at the content they store.
+and retrieval mechanism is built makes it difficult to discover content on
+nodes that are very far away from the location in the network where that
+content is addressed.  This is simply an inherent property of how the
+DHT/Kademlia routing works.  To solve this, we are exploring how to have our
+clients represent themselves on the network in multiple locations which makes
+them inherently easier to discover since each of these network identities would
+be an entry point into getting at the content they store.
 
 Another major topic of research is around a scheme for storing large SSZ
 objects in our network.  This feature would enable our networks to do more
