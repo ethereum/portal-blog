@@ -184,7 +184,7 @@ as well as their broader knowledge and understanding of the Ethereum protocols.
 The am left with a deep feeling of satisfaction and excitement.  The Portal
 protocol is something I first imagined a full four years ago.  During that four
 years the teams and engineers working on the various clients have turned that
-idea into a well specificed protocol with four distinct clients and a growing
+idea into a well specified protocol with four distinct clients and a growing
 suite of monitoring and testing infrastructure.  My satisfaction comes from
 seeing the tangible imminence of the thing that was imagined being something
 that is real.  And my exitement is in having tangible results in a live
