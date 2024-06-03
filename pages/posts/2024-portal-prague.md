@@ -164,7 +164,7 @@ identities would be an entry point into getting at the content they store.
 Another major topic of research is around a scheme for storing large SSZ
 objects in our network.  This feature would enable our networks to do more
 efficient bulk storage of things like deep history data or potentially even
-deep archives of very old state data.  Thes storage format this offers can be
+deep archives of very old state data.  The storage format this offers can be
 significantly more efficient than many of our current models.  The biggest
 benefit we see from this approach is bulk downloading of this data, very much
 similiar to being able to "torrent" this data from our networks.  This would
