@@ -140,7 +140,7 @@ Portal history network with the expressed goal of delivering 4444s this year.
 
 ![Glados plans](../../public/images/2024-prague-glados-plans.jpeg)
 
-Glados is our network monitoring infrastructure. It provide visibility into the
+Glados is our network monitoring infrastructure. It provides visibility into the
 current and historical status of our live networks. During the summit we
 discussed future plans for more graphs and information we want from Glados and
 new types of monitoring that we want to be possible.  Glados has continued to
