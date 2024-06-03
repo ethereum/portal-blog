@@ -31,10 +31,10 @@ inherently friendly towards broader participation and easier access.
 ![Portal Network Endgame](../../public/images/2024-prague-endgame-portal.jpeg)
 
 One of the more important discussions we had this week was setting our roadmap
-items for both the near term future as well as discussion the dependency chain
-for our longer term plans.  In the short term, our focus remains to deliver the
-core data needed by execution layer clients.  This is our MVP and we are on
-track to deliver it by the end of 2024.
+items for both the near term future as well as the dependency chain for our
+longer term plans.  In the short term, our focus remains to deliver the core
+data needed by execution layer clients.  This is our MVP and we are on track to
+deliver it by the end of 2024.
 
 The Portal History network is largely feature complete.  The only remaining work is
 centered around handling proofs for the most recent headers that are entering
