@@ -139,14 +139,61 @@ this is what the Portal Network primarily does.  In fact, "lightweight" clients
 are more of a side effect.
 
 The Portal Network is more accurately described as a fundamental
-re-architecture of the Ethereum Execution client such that the requirements
+re-architecture of the Ethereum execution client such that the requirements
 placed on client design by the network are minimal and intentional.  Lets dive
 into exactly what that means.
 
 ### Distributed Storage
 
-The most significant thing that the Portal Network does is implement a distributed storage model for Ethereum's data.  All of the data that an Execution client might want whether it is headers, the indexes for doing block number lookups, or state data is stored in a distributed model that allows for clients in the network to decide how much of it they wish to store.  The correlary to this is that all of the storage requirements that make a DevP2P based execution client go away. Where as a DevP2P based client is required to store a full terabyte of data, a Portal client can store as little or as much of that data at it choses. This may seem to good to be true. How can a client simply discard a full terabyte of data at zero cost?  The answer is that there is a cost, and that cost is paid for in speed.
+The most significant thing that the Portal Network does is implement a
+distributed storage model for Ethereum's data.  All of the data that an
+execution client might want whether it is headers, the indexes for doing block
+number lookups, or state data is stored in a distributed model that allows for
+clients in the network to decide how much of it they wish to store.  The
+correlary to this is that all of the storage requirements that make a DevP2P
+based execution client go away. Where as a DevP2P based client is required to
+store a full terabyte of data, a Portal client can store as little or as much
+of that data at it choses. This may seem to good to be true. How can a client
+simply discard a full terabyte of data at zero cost?  The answer is that there
+is a cost, and that cost is paid for in speed.
 
-The fastest place to get any of Ethereum's data is always going to be reading it from your own database on your own disk. A Portal client that chooses to discard the full data set is going to be slower at everything it does than a client that choses to keep it all locally.  The client that has the data locally only faces the latency of fetching the data from disk.  The client that chooses to store nothing is faced with the latency of having to navigate the distributed storage network that is the Portal network to retrieve that data.  Depending on the use case, or the limitations of the machine running the client, this kind of latency may be acceptable.  In other use cases it may be justified to keep the data locally on disk.  The important part here is that the Portal architecture allows for this trade off, where as DevP2P based execution clients do not even have the option.
+The fastest place to get any of Ethereum's data is always going to be reading
+it from your own database on your own disk. A Portal client that chooses to
+discard the full data set is going to be slower at everything it does than a
+client that choses to keep it all locally.  The client that has the data
+locally only faces the latency of fetching the data from disk.  The client that
+chooses to store nothing is faced with the latency of having to navigate the
+distributed storage network that is the Portal network to retrieve that data.
+Depending on the use case, or the limitations of the machine running the
+client, this kind of latency may be acceptable.  In other use cases it may be
+justified to keep the data locally on disk.  The important part here is that
+the Portal architecture allows for this trade off, where as DevP2P based
+execution clients do not even have the option.
 
-This trade off between keeping data on disk vs fetching it as needed from the network also has an important nuance as to why Portal's architecture is so powerful. While Ethereum's data set may measure close to a terabyte, the vast majority of that data is never or rarely accessed.  A cleverly written execution client that is based on the Portal network architecture would be able to discard the data that is rarely or never accessed, while choosing to also keep around the data that is accessed most often locally on disk.  Such a client may be able to discard a significant portion of the overall data set while also avoiding most or all of the performance implications of having to fetch data fromm the network.  This is an area of research that hasn't been thoroughly explored by our execution client teams because of the limitations and requirements placed on their clients by the DevP2P protocol.
+This trade off between keeping data on disk vs fetching it as needed from the
+network also has an important nuance as to why Portal's architecture is so
+powerful. While Ethereum's data set may measure close to a terabyte, the vast
+majority of that data is never or rarely accessed.  A cleverly written
+execution client that is based on the Portal network architecture would be able
+to discard the data that is rarely or never accessed, while choosing to also
+keep around the data that is accessed most often locally on disk.  Such a
+client may be able to discard a significant portion of the overall data set
+while also avoiding most or all of the performance implications of having to
+fetch data fromm the network.  This is an area of research that hasn't been
+thoroughly explored by our execution client teams because of the limitations
+and requirements placed on their clients by the DevP2P protocol.
+
+### New Architecture, New Clients, New Research
+
+This new architecture for Ethereum execution clients has been underway for a
+long time and has been starting to come online over the last year. We expect
+our networks to be at an MVP stage by the end of 2024.  This means that our
+networks will have all of the data necessary to sync an execution client and to
+serve the majority of the standard JSON-RPC API. By the end of 2025 we expect
+to have real progress towards in-protocol use cases such as a drop in
+replacement for staking nodes.  This seems to be one of the areas where Portal
+architecture can solve a real pain point in how people use execution clients.
+
+Along the way, we expect to see new areas of research open up in the client
+design space.  Portal allows for new novel ways for a client to manage the data
+it stores on disk which previously were not possible.  
