@@ -6,16 +6,16 @@ tag: project
 author: Piper Merriam
 ---
 
-For most of the history of this project the Portal network has been pitched as
+For most of the history of this project the Portal Network has been pitched as
 a solution for light clients.  Lightweight access to the Ethereum protocol has
 been core to our mission since the beginning, however, lately we are finding
 that this narrative fails to effectively capture the power of the Portal
 network and the problems it can solve.
 
-The Portal network is a new foundation for Ethereum execution client
+The Portal Network is a new foundation for Ethereum execution client
 architecture that fundamentally fixes many inherent limitations imposed by the
 original DevP2P based architecture. The goal of this blog post will be to
-explore what those limitations are, how the Portal network solves them, and
+explore what those limitations are, how the Portal Network solves them, and
 what the resulting execution client looks like when built off of this new
 architecture.
 
