@@ -107,7 +107,7 @@ the DevP2P network imposes on clients.
 - A full copy of the block bodies and receipts
 - A full and up-to-date copy of the state
 
-Additionally, it imposes the following additional *implicite* requirements.
+Additionally, it imposes the following additional *implicit* requirements.
 
 - A full index mapping block numbers to their canonical block hash
 - A state database that is suitable for serving the SNAP sync protocol
